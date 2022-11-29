@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HomeContainer,Title, Form, Input, Button } from './styles';
 import { LogoCITi } from '../../assets';
 import axios from "axios";
+import apiAxios from "../../services/api";
 
 export const Home: React.FC = () => {
 
@@ -10,7 +11,7 @@ export const Home: React.FC = () => {
     const [age, setAge ] = useState("");
 
     const handleSubmit = () => {
-        axios.post('http://localhost:3001/user',
+        apiAxios.post('/user',
         {
             "firstName": firstName,
             "lastName": lastName,
