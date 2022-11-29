@@ -37,3 +37,35 @@ export const HomeContainer = styled.div`
     width: 25%;
   }
 `;
+
+export const Form = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  line-height: -20px;
+`;
+
+export const Title = styled.h3`
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+`;
+
+export const Input = styled.input`
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid #e3e3e3;
+  color: ${props => props.theme.colors.text};
+`;
+
+export const Button = styled.button`
+  margin-top: 30px;
+  width: 40%;
+  height: 35%;
+
+  border-radius: 8px;
+  border: 2px solid #e3e3e3;
+  background-color: ${props => props.theme.colors.primary};
+`;
