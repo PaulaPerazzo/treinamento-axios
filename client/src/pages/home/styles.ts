@@ -38,6 +38,12 @@ export const HomeContainer = styled.div`
   }
 `;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+`;
+
 export const Form = styled.div`
   display: flex;
   align-items: center;
@@ -63,9 +69,33 @@ export const Input = styled.input`
 export const Button = styled.button`
   margin-top: 30px;
   width: 40%;
-  height: 35%;
+  height: 40px;
 
   border-radius: 8px;
   border: 2px solid #e3e3e3;
   background-color: ${props => props.theme.colors.primary};
+`;
+
+export const Card = styled.div`
+  height: 100%;
+  width: 16rem;
+  box-shadow: 1px;
+  border: 2px solid #e3e3e3;
+  margin-top: 20px;
+  padding: 10px;
+  margin-right: 10px;
+
+  p {
+    margin-top: 0px;
+    font-size: 15px;
+  }
+`;
+
+export const GetForm = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  line-height: -20px;
 `;
