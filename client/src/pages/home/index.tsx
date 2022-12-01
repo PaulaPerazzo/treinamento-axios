@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HomeContainer,Title, Form, Input, Button, Container, Card, GetForm } from './styles';
 import { LogoCITi } from '../../assets';
 import axios from "axios";
 import apiAxios from "../../services/api";
+
+type User = {
+    firstName: string;
+    lastName: string;
+    age: number;
+}
 
 export const Home: React.FC = () => {
 
     const [firstName, setFirstName ] = useState("");
     const [lastName, setLastName ] = useState("");
     const [age, setAge ] = useState("");
+    const [ userList, setUserList ] = useState<[]>([]);
+    const [user, setUser] = useState<User[]>([])
 
     const handleSubmit = () => {
         apiAxios.post('/user',
@@ -21,6 +29,19 @@ export const Home: React.FC = () => {
          .catch(err => {console.log(err)})
 
         console.log(firstName, lastName, age);
+    };
+
+    const handleGet = async () => {
+        await apiAxios.get('/user')
+         .then((value) => {setUserList(value.data)})
+         .catch(err => {console.log(err)})
+     
+        const listLenght = userList.length
+
+        const randomNum = Math.floor(Math.random() * (listLenght))
+
+        setUser(userList[randomNum])
+        console.log('user', user)
     };
 
     return (
@@ -40,11 +61,10 @@ export const Home: React.FC = () => {
 
                 <Form >
                     <Title> Get user </Title>
-                    <Button > get user </Button>
+                    <Button onClick={handleGet} > get user </Button>
                     <div style={{display: "flex", flexDirection: 'row'}}>
-
                         <Card>
-                            <p>first name: aaaaaa </p>
+                            <p>first name:  </p>
                             <p>last name: </p>
                             <p>age: </p>
                         </Card>
